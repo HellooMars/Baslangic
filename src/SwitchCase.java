@@ -3,7 +3,7 @@ public class SwitchCase {
 
         int day =1 ;
 
-        if (day == 1) {
+        if (day == 2) {
 
 
         }
