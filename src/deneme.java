@@ -1,15 +1,13 @@
+public class deneme {
+        public static void main(String[] args) {
+            recursiveMethod(4);
+        }
 
-   import java.util.Scanner;
-
-        public class deneme {
-                public static void main(String args[]) {
-                    int x = 25;
-                    System.out.println(run(5));
-                }
-
-                static int run(int x) {
-                    x = 10;
-                    return x;
-                }
-
-                }
+        static void recursiveMethod(int num) {
+            num--;
+            if (num == 0)
+                return;
+            System.out.print(num + ",");
+            recursiveMethod(num);
+        }
+    }
