@@ -1,6 +1,5 @@
 import java.util.Scanner;
-
-public class deneme {
+public class RecursiveDeseneGoreMethod{
     static void desen( int n){
         for(int i=n; i>=-n ; i-=5){
             System.out.print(i + " ");
@@ -10,9 +9,9 @@ public class deneme {
                     if(k==n){
                         break;
                     }
+                }
             }
         }
-    }
     }
 
     public static void main(String[] args) {
@@ -23,3 +22,4 @@ public class deneme {
 
     }
 }
+
