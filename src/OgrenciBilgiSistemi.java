@@ -1,4 +1,4 @@
-public class Main {
+public class OgrenciBilgiSistemi {
     public static void main(String[] args) {
         Teacher t1 = new Teacher("Mahmut Hoca","TRH","90505");
         Teacher t2 = new Teacher("Graham Bell", "FZK", "0000");
