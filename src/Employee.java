@@ -1,55 +1,67 @@
-public class Employee {
-    Employee worker1;
-    Employee worker2;
+class Employee {
     String name;
     double salary;
     int workHours;
     int hireYear;
-    int nowYear = 2021;
 
-    Employee(String name, double salary, int workHours, int hireYear) {
-        this.name = name;
-        this.salary = salary;
-        this.workHours = workHours;
-        this.hireYear = hireYear;
+
+    Employee(String name,double salary,int workHours,int hireYear){
+        this.name =name;
+        this.salary=salary;
+        this.workHours=workHours;
+        this.hireYear=hireYear;
     }
 
-    double tax() {
-        if (this.salary > 1000) {
-            return this.salary *= 0.97;
-        }else{
-            return 0;
-        }
-    }
+    void tax(){
+        if(this.salary>=1000){
+            int taxprice = (int) ((this.salary*3) / 100);
+            System.out.println("Vergi : " +taxprice);
 
-    double shift(){
-        if(this.workHours >40){
-            return this.salary +(this.workHours-40)*30;
         }else {
-            return this.salary;
+            int taxprice=0;
+            System.out.println("Vergi : " +taxprice);
+
+
         }
     }
+    void bonus(){
+        if(this.workHours >40){
+            int extra = ((workHours - 40) * 30);
+            System.out.println("Bonus :" +extra);
 
-    double raiseSalary() {
-        if (nowYear - this.hireYear < 10) {
-            return this.salary * 1.05;
+        }else {
+            int extra = 0 ;
+            System.out.println("Bonus : " +extra);
         }
-        if (nowYear - this.hireYear >= 10 && nowYear - this.hireYear < 19) {
-            return this.salary * 1.10;
-        }
-            return salary*1.15;
     }
+    void raiseSalary (){
+        int nowYear =2021;
+        if(nowYear - this.hireYear <10){
+            double increasedPrice = (this.salary*5) /100;
+            System.out.println("Maas Artisi : +" +increasedPrice);
+            System.out.println("Maas Artisi % 5'tir.");
+        }else if (nowYear - this.hireYear >=10 && nowYear - this.hireYear <20 ){
+            double increasedPrice = (this.salary*10) /100;
+            System.out.println("Maas Artisi : +" +increasedPrice);
+            System.out.println("Maas Artisi % 10'dur.");
+        }else {
+            double increasedPrice = (this.salary*15) /100;
+            System.out.println("Maas Artisi : +" +increasedPrice);
+            System.out.println("Maas Artisi % 15'tir.");
+        }
+    }
+    void totalSalary (){
+        
+        System.out.println();
 
-    void printAll(){
-        System.out.println("Adı : " +this.name);
-        System.out.println("Maaşı : " +this.salary);
-        System.out.println("Çalışma Saati :" +this.workHours);
-        System.out.println("Başlangıç Yılı : " +this.hireYear);
-        System.out.println("Vergi :" +tax());
-        System.out.println("Bonus " +shift());
-        System.out.println("Maaş Artışı :" +raiseSalary());
-        System.out.println("Vergi ve Bonuslar ile birlikte maaş ");
-        System.out.println("Toplam maaş :");
+    }
+    void printInfo(){
+        System.out.println("Name : " + this.name);
+        System.out.println("Maas : " + this.salary);
+        System.out.println("Work Hours : " + this.workHours);
+        System.out.println("Hire Year : " + this.hireYear);
+
+
 
     }
 }
