@@ -11,48 +11,45 @@ class Employee {
         this.workHours=workHours;
         this.hireYear=hireYear;
     }
-
-    void tax(){
+	//Vergili maaşı tam sayı olarak döndürüyor.
+    double Tax(){
+		double taxedSalary = this.salary ;
         if(this.salary>=1000){
-            int taxprice = (int) ((this.salary*3) / 100);
-            System.out.println("Vergi : " +taxprice);
-
-        }else {
-            int taxprice=0;
-            System.out.println("Vergi : " +taxprice);
-
-
+            taxedSalary = (int) (this.salary*3) / 100;
         }
+		System.out.println("Vergi : " +taxedSalary);
+		return taxedSalary;
     }
-    void bonus(){
+	//Bonus miktarını döndürüyor
+    int Bonus(){
+		int extra = 0;
         if(this.workHours >40){
-            int extra = ((workHours - 40) * 30);
-            System.out.println("Bonus :" +extra);
-
-        }else {
-            int extra = 0 ;
-            System.out.println("Bonus : " +extra);
+            extra =  ((workHours - 40) * 30);
         }
+		System.out.println("Bonus :" +extra);
+		return extra;
+		
     }
-    void raiseSalary (){
+    void RaiseSalary (){
         int nowYear =2021;
+		//Adamın vergili maaşının üstüne + bonus eklediğindeki maaşını veriyorç
+		double taxedAndBonusAddedSalary = this.salary-Tax() + Bonus();
+        System.out.println(taxedAndBonusAddedSalary);
+		
         if(nowYear - this.hireYear <10){
-            double increasedPrice = (this.salary*5) /100;
-            System.out.println("Maas Artisi : +" +increasedPrice);
+            taxedAndBonusAddedSalary =taxedAndBonusAddedSalary + (taxedAndBonusAddedSalary*5) /100;
             System.out.println("Maas Artisi % 5'tir.");
+            System.out.println("Vergiler dahil maasi : " +taxedAndBonusAddedSalary);
         }else if (nowYear - this.hireYear >=10 && nowYear - this.hireYear <20 ){
-            double increasedPrice = (this.salary*10) /100;
-            System.out.println("Maas Artisi : +" +increasedPrice);
+            taxedAndBonusAddedSalary = taxedAndBonusAddedSalary + (taxedAndBonusAddedSalary*10) /100;
             System.out.println("Maas Artisi % 10'dur.");
+            System.out.println("Vergiler dahil maasi: " +taxedAndBonusAddedSalary);
         }else {
-            double increasedPrice = (this.salary*15) /100;
-            System.out.println("Maas Artisi : +" +increasedPrice);
+            taxedAndBonusAddedSalary = taxedAndBonusAddedSalary + (taxedAndBonusAddedSalary*15) /100;
             System.out.println("Maas Artisi % 15'tir.");
+            System.out.println("Vergiler dahil maasi : " +taxedAndBonusAddedSalary);
         }
-    }
-    void totalSalary (){
-        
-        System.out.println();
+
 
     }
     void printInfo(){
@@ -60,8 +57,6 @@ class Employee {
         System.out.println("Maas : " + this.salary);
         System.out.println("Work Hours : " + this.workHours);
         System.out.println("Hire Year : " + this.hireYear);
-
-
 
     }
 }
